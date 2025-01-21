@@ -27,22 +27,61 @@ public class TryCatch {
 		try {
 		// Arithematic exception handling
 		int result = 100/0; //will throw arithematic exception/ by zero
+		System.out.println("Result is :"+result);
 		}
 		catch(ArithmeticException e) {
 			System.out.println(e.toString());
 		}
-		System.out.println("Hello Java"); //this line will not execute if there is exception and try-catch is not used
+		System.out.println("Line after Arithematic exception in Java"); //this line will not execute if there is exception and try-catch is not used
 		
 		try {
-			// NullPointer exception handling
-			String result = null; //will throw nullPointerException
-			System.out.println("Length of String is :"+ result.length());
-			}
-			catch(NullPointerException e) {
-				System.out.println(e.toString());
-			}
-			System.out.println("Hello Java"); //this line will not execute if there is exception and try-catch is not used
+		// NullPointer exception handling
+		String result = null; //will throw nullPointerException
+		System.out.println("Length of String is :"+ result.length());
+		}
+		catch(NullPointerException e) {
+			System.out.println(e.toString());
+		}
+		System.out.println("Line after Null Pointer exception in Java"); //this line will not execute if there is exception and try-catch is not used
 		
+		try {
+		// NumberFormat exception handling
+		String result = "name"; 
+		int i = Integer.parseInt(result); //will throw NumberFormat Exception
+		
+		System.out.println("String converted into integer is :"+ i);
+		}
+		catch(NumberFormatException e) {
+			System.out.println(e.toString());
+		}
+		finally {
+		System.out.println("---Line after Number format exception in Java- in finally block---"); //this line will not execute if there is exception and try-catch is not used
+		}
+		try {
+		// ArrayIndex Out of bound exception handling
+		int [] a = new int [5];
+		a[6] = 23; //will throw Array Out of bound exception
+		
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.toString());
+		}
+		finally {
+		System.out.println("---Line after ArrayIndex Out of bound exception in Java- in finally block---"); 
+		}
+		
+		//try-finally not executing catch
+		try {
+		int [] a = new int [5];
+		a[3] = 23;
+		
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.toString());
+		}
+		finally {
+		System.out.println("---Line in finally block---"); 
+			}
 	}
 
 }
